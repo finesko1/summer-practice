@@ -184,6 +184,8 @@ void clearScreen() {
 void menu() {
     Item* tmpTea = new Tea();
     Item* tmpPizza = new Pizza();
+    start:
+    clearScreen();
     std::cout << "\tMenu\n";
     std::cout << "1 - TEA,\t2 - PIZZA\n";
     do {
@@ -225,6 +227,9 @@ void menu() {
                             tmpTea = new Lavender(tmpTea);
                             break;
                         }
+                        case 'q': {
+                            goto start;
+                        }
                         default:
                             std::cout << "Invalid supplement choice." << endl;
                         }
@@ -241,24 +246,27 @@ void menu() {
                     int ch_pizza = _getch();
                     switch (static_cast<char>(ch_pizza)) {
                     case 'a': {
-                        tmpPizza = new Mint(tmpPizza);
+                        tmpPizza = new Pineapple(tmpPizza);
                         break;
                     }
                     case 'b': {
-                        tmpPizza = new Jasmine(tmpPizza);
+                        tmpPizza = new Broccoli(tmpPizza);
                         break;
                     }
                     case 'h': {
-                        tmpPizza = new Blackcurrant(tmpPizza);
+                        tmpPizza = new Ham(tmpPizza);
                         break;
                     }
                     case 't': {
-                        tmpPizza = new Rosehip(tmpPizza);
+                        tmpPizza = new Tomato(tmpPizza);
                         break;
                     }
                     case 'c': {
-                        tmpPizza = new Lavender(tmpPizza);
+                        tmpPizza = new Cheese(tmpPizza);
                         break;
+                    }
+                    case 'q': {
+                        goto start;
                     }
                     default:
                         std::cout << "Invalid supplement choice." << endl;
