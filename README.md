@@ -85,7 +85,7 @@ public:
 };
 ```
 
-![struct code](https://github.com/finesko1/summer-practice/blob/main/sources/img/struct.png)
+![struct code](https://github.com/finesko1/summer-practice/blob/main/sources/img/structNew.png)
 
 ## Интерфейс работы приложения
-![Интерфейс работы приложения](https://github.com/finesko1/summer-practice/blob/main/sources/mp/interface.gif)
+![Интерфейс работы приложения](https://github.com/finesko1/summer-practice/blob/main/sources/mp/interfaceNew.gif)
