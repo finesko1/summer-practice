@@ -84,5 +84,7 @@ public:
     }
 };
 ```
+
 ![struct code](https://github.com/finesko1/summer-practice/blob/main/sources/img/struct.png)
-[![Интерфейс работы приложения(https://github.com/finesko1/summer-practice/blob/main/sources/img/interface_preview.jpg)](https://youtu.be/t8nacKNF5ao)
+
+![Интерфейс работы приложения](https://github.com/finesko1/summer-practice/blob/main/sources/mp/interface.gif)
