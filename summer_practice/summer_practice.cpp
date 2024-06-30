@@ -58,7 +58,7 @@ protected:
     Item* myItem;
 };
 
-//Декораторы для добавок к Пицце (яблоко, брокколи, ветчина, томат, сыр)
+//Декораторы для добавок к Пицце (яблоко, брокколи, ветчина, томат, сыр, соус)
 class Pineapple : public ItemDecorator {
 public:
     Pineapple(Item* currentItem) : ItemDecorator(currentItem) {}
@@ -114,7 +114,18 @@ public:
     }
 };
 
-//Декораторы для добавок к Чаю (мята, жасмпин, черная смородина, шиповник, лаванда)
+class Sauce : public ItemDecorator {
+public:
+    Sauce(Item* currentItem) : ItemDecorator(currentItem) {}
+    string getDescription() const override {
+        return myItem->getDescription() + ", Sauce";
+    }
+    double getCost() const override {
+        return myItem->getCost() + 3.0;
+    }
+};
+
+//Декораторы для добавок к Чаю (мята, жасмпин, черная смородина, шиповник, лаванда, облепиха)
 class Mint : public ItemDecorator {
 public:
     Mint(Item* currentItem) : ItemDecorator(currentItem) {}
@@ -170,6 +181,18 @@ public:
     }
 };
 
+class SeaB​​​uckthorn : public ItemDecorator {
+public:
+    SeaB​​​uckthorn(Item* currentItem) : ItemDecorator(currentItem) {}
+    string getDescription() const override {
+        return myItem->getDescription() + ", sea buckthorn";
+    }
+    double getCost() const override {
+        return myItem->getCost() + 0.7;
+    }
+};
+
+
 //очистка терминала
 void clearScreen() {
 #ifdef _WIN32
@@ -203,7 +226,7 @@ void menu() {
             case '1': {
                 clearScreen();
                 std::cout << "\t\tTEA\n";
-                std::cout << "Supplements:\n\tM - mint\n\tJ - jasmpine\n\tB - black currant\n\tR - rosehip\n\tL - lavender\n";
+                std::cout << "Supplements:\n\tM - mint\n\tJ - jasmpine\n\tB - black currant\n\tR - rosehip\n\tL - lavender\n\tS - sauce\n";
                 do {
                     int ch_tea = _getch();
                     switch (static_cast<char>(ch_tea)) {
@@ -227,6 +250,10 @@ void menu() {
                             tmpTea = new Lavender(tmpTea);
                             break;
                         }
+                        case 's': {
+                            tmpTea = new Sauce(tmpTea);
+                            break;
+                        }
                         case 'q': {
                             goto start;
                         }
@@ -241,7 +268,7 @@ void menu() {
             case '2': {
                 clearScreen();
                 std::cout << "\t\tPIZZA\n";
-                std::cout << "Supplements:\n\tA - apple\n\tB - broccoli\n\tH - ham\n\tT - tomato\n\tC - cheese\n";
+                std::cout << "Supplements:\n\tA - apple\n\tB - broccoli\n\tH - ham\n\tT - tomato\n\tC - cheese\n\tS - Sea buckthorn\n";
                 do {
                     int ch_pizza = _getch();
                     switch (static_cast<char>(ch_pizza)) {
@@ -263,6 +290,10 @@ void menu() {
                     }
                     case 'c': {
                         tmpPizza = new Cheese(tmpPizza);
+                        break;
+                    }
+                    case 's': {
+                        tmpPizza = new SeaB​​​uckthorn(tmpPizza);
                         break;
                     }
                     case 'q': {
